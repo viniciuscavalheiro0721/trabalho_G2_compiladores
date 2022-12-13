@@ -1,0 +1,18 @@
+program: statement_or_decl 
+statement_or_decl: statement | statement_or_decl
+
+
+statement: 	decl_fn
+		|call_function 
+		| if
+		|if_else
+		|while
+		|expression
+
+decl_fn: TO id : args_list statment_or_decl END 
+args_list: args args_list| &
+args: num | ID | &
+call_func : ID args_list
+if : IF ID THEN statement_or_decl END
+if_else : IF ID THEN statement_or_decl ELSE statement_or_decl END
+while : WHILE ID statement_or_decl END

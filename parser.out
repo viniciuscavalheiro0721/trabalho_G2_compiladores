@@ -1,0 +1,1155 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Grammar
+
+Rule 0     S' -> program
+Rule 1     program -> statement_or_decl
+Rule 2     statement_or_decl -> statement statement_or_decl
+Rule 3     statement_or_decl -> <empty>
+Rule 4     decl_fn -> TO ID args_list statement_or_decl END
+Rule 5     args_list -> <empty>
+Rule 6     args_list -> args args_list
+Rule 7     args -> COLON id
+Rule 8     args -> number
+Rule 9     statement -> decl_fn
+Rule 10    statement -> call_function
+Rule 11    statement -> if
+Rule 12    statement -> if_else
+Rule 13    statement -> while
+Rule 14    statement -> expression
+Rule 15    call_function -> ID args_list
+Rule 16    number -> NUMBER
+Rule 17    id -> ID
+Rule 18    if -> IF ID THEN statement_or_decl END
+Rule 19    if_else -> IF ID THEN statement_or_decl ELSE statement_or_decl END
+Rule 20    while -> WHILE ID statement_or_decl END
+Rule 21    factor -> PLUS factor
+Rule 22    factor -> MINUS factor
+Rule 23    factor -> LPAREN expression RPAREN
+Rule 24    expression -> term PLUS term
+Rule 25    expression -> term MINUS term
+Rule 26    expression -> term
+Rule 27    term -> factor TIMES factor
+Rule 28    term -> factor DIVIDE factor
+Rule 29    term -> factor
+Rule 30    factor -> NUMBER
+
+Terminals, with rules where they appear
+
+COLON                : 7
+DIVIDE               : 28
+ELSE                 : 19
+END                  : 4 18 19 20
+ID                   : 4 15 17 18 19 20
+IF                   : 18 19
+LPAREN               : 23
+MINUS                : 22 25
+NUMBER               : 16 30
+PLUS                 : 21 24
+RPAREN               : 23
+THEN                 : 18 19
+TIMES                : 27
+TO                   : 4
+WHILE                : 20
+error                : 
+
+Nonterminals, with rules where they appear
+
+args                 : 6
+args_list            : 4 6 15
+call_function        : 10
+decl_fn              : 9
+expression           : 14 23
+factor               : 21 22 27 27 28 28 29
+id                   : 7
+if                   : 11
+if_else              : 12
+number               : 8
+program              : 0
+statement            : 2
+statement_or_decl    : 1 2 4 18 19 19 20
+term                 : 24 24 25 25 26
+while                : 13
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . program
+    (1) program -> . statement_or_decl
+    (2) statement_or_decl -> . statement statement_or_decl
+    (3) statement_or_decl -> .
+    (9) statement -> . decl_fn
+    (10) statement -> . call_function
+    (11) statement -> . if
+    (12) statement -> . if_else
+    (13) statement -> . while
+    (14) statement -> . expression
+    (4) decl_fn -> . TO ID args_list statement_or_decl END
+    (15) call_function -> . ID args_list
+    (18) if -> . IF ID THEN statement_or_decl END
+    (19) if_else -> . IF ID THEN statement_or_decl ELSE statement_or_decl END
+    (20) while -> . WHILE ID statement_or_decl END
+    (24) expression -> . term PLUS term
+    (25) expression -> . term MINUS term
+    (26) expression -> . term
+    (27) term -> . factor TIMES factor
+    (28) term -> . factor DIVIDE factor
+    (29) term -> . factor
+    (21) factor -> . PLUS factor
+    (22) factor -> . MINUS factor
+    (23) factor -> . LPAREN expression RPAREN
+    (30) factor -> . NUMBER
+
+    $end            reduce using rule 3 (statement_or_decl -> .)
+    TO              shift and go to state 10
+    ID              shift and go to state 11
+    IF              shift and go to state 12
+    WHILE           shift and go to state 13
+    PLUS            shift and go to state 15
+    MINUS           shift and go to state 16
+    LPAREN          shift and go to state 18
+    NUMBER          shift and go to state 19
+
+    program                        shift and go to state 1
+    statement_or_decl              shift and go to state 2
+    statement                      shift and go to state 3
+    decl_fn                        shift and go to state 4
+    call_function                  shift and go to state 5
+    if                             shift and go to state 6
+    if_else                        shift and go to state 7
+    while                          shift and go to state 8
+    expression                     shift and go to state 9
+    term                           shift and go to state 14
+    factor                         shift and go to state 17
+
+state 1
+
+    (0) S' -> program .
+
+
+
+state 2
+
+    (1) program -> statement_or_decl .
+
+    $end            reduce using rule 1 (program -> statement_or_decl .)
+
+
+state 3
+
+    (2) statement_or_decl -> statement . statement_or_decl
+    (2) statement_or_decl -> . statement statement_or_decl
+    (3) statement_or_decl -> .
+    (9) statement -> . decl_fn
+    (10) statement -> . call_function
+    (11) statement -> . if
+    (12) statement -> . if_else
+    (13) statement -> . while
+    (14) statement -> . expression
+    (4) decl_fn -> . TO ID args_list statement_or_decl END
+    (15) call_function -> . ID args_list
+    (18) if -> . IF ID THEN statement_or_decl END
+    (19) if_else -> . IF ID THEN statement_or_decl ELSE statement_or_decl END
+    (20) while -> . WHILE ID statement_or_decl END
+    (24) expression -> . term PLUS term
+    (25) expression -> . term MINUS term
+    (26) expression -> . term
+    (27) term -> . factor TIMES factor
+    (28) term -> . factor DIVIDE factor
+    (29) term -> . factor
+    (21) factor -> . PLUS factor
+    (22) factor -> . MINUS factor
+    (23) factor -> . LPAREN expression RPAREN
+    (30) factor -> . NUMBER
+
+    $end            reduce using rule 3 (statement_or_decl -> .)
+    END             reduce using rule 3 (statement_or_decl -> .)
+    ELSE            reduce using rule 3 (statement_or_decl -> .)
+    TO              shift and go to state 10
+    ID              shift and go to state 11
+    IF              shift and go to state 12
+    WHILE           shift and go to state 13
+    PLUS            shift and go to state 15
+    MINUS           shift and go to state 16
+    LPAREN          shift and go to state 18
+    NUMBER          shift and go to state 19
+
+    statement                      shift and go to state 3
+    statement_or_decl              shift and go to state 20
+    decl_fn                        shift and go to state 4
+    call_function                  shift and go to state 5
+    if                             shift and go to state 6
+    if_else                        shift and go to state 7
+    while                          shift and go to state 8
+    expression                     shift and go to state 9
+    term                           shift and go to state 14
+    factor                         shift and go to state 17
+
+state 4
+
+    (9) statement -> decl_fn .
+
+    TO              reduce using rule 9 (statement -> decl_fn .)
+    ID              reduce using rule 9 (statement -> decl_fn .)
+    IF              reduce using rule 9 (statement -> decl_fn .)
+    WHILE           reduce using rule 9 (statement -> decl_fn .)
+    PLUS            reduce using rule 9 (statement -> decl_fn .)
+    MINUS           reduce using rule 9 (statement -> decl_fn .)
+    LPAREN          reduce using rule 9 (statement -> decl_fn .)
+    NUMBER          reduce using rule 9 (statement -> decl_fn .)
+    $end            reduce using rule 9 (statement -> decl_fn .)
+    END             reduce using rule 9 (statement -> decl_fn .)
+    ELSE            reduce using rule 9 (statement -> decl_fn .)
+
+
+state 5
+
+    (10) statement -> call_function .
+
+    TO              reduce using rule 10 (statement -> call_function .)
+    ID              reduce using rule 10 (statement -> call_function .)
+    IF              reduce using rule 10 (statement -> call_function .)
+    WHILE           reduce using rule 10 (statement -> call_function .)
+    PLUS            reduce using rule 10 (statement -> call_function .)
+    MINUS           reduce using rule 10 (statement -> call_function .)
+    LPAREN          reduce using rule 10 (statement -> call_function .)
+    NUMBER          reduce using rule 10 (statement -> call_function .)
+    $end            reduce using rule 10 (statement -> call_function .)
+    END             reduce using rule 10 (statement -> call_function .)
+    ELSE            reduce using rule 10 (statement -> call_function .)
+
+
+state 6
+
+    (11) statement -> if .
+
+    TO              reduce using rule 11 (statement -> if .)
+    ID              reduce using rule 11 (statement -> if .)
+    IF              reduce using rule 11 (statement -> if .)
+    WHILE           reduce using rule 11 (statement -> if .)
+    PLUS            reduce using rule 11 (statement -> if .)
+    MINUS           reduce using rule 11 (statement -> if .)
+    LPAREN          reduce using rule 11 (statement -> if .)
+    NUMBER          reduce using rule 11 (statement -> if .)
+    $end            reduce using rule 11 (statement -> if .)
+    END             reduce using rule 11 (statement -> if .)
+    ELSE            reduce using rule 11 (statement -> if .)
+
+
+state 7
+
+    (12) statement -> if_else .
+
+    TO              reduce using rule 12 (statement -> if_else .)
+    ID              reduce using rule 12 (statement -> if_else .)
+    IF              reduce using rule 12 (statement -> if_else .)
+    WHILE           reduce using rule 12 (statement -> if_else .)
+    PLUS            reduce using rule 12 (statement -> if_else .)
+    MINUS           reduce using rule 12 (statement -> if_else .)
+    LPAREN          reduce using rule 12 (statement -> if_else .)
+    NUMBER          reduce using rule 12 (statement -> if_else .)
+    $end            reduce using rule 12 (statement -> if_else .)
+    END             reduce using rule 12 (statement -> if_else .)
+    ELSE            reduce using rule 12 (statement -> if_else .)
+
+
+state 8
+
+    (13) statement -> while .
+
+    TO              reduce using rule 13 (statement -> while .)
+    ID              reduce using rule 13 (statement -> while .)
+    IF              reduce using rule 13 (statement -> while .)
+    WHILE           reduce using rule 13 (statement -> while .)
+    PLUS            reduce using rule 13 (statement -> while .)
+    MINUS           reduce using rule 13 (statement -> while .)
+    LPAREN          reduce using rule 13 (statement -> while .)
+    NUMBER          reduce using rule 13 (statement -> while .)
+    $end            reduce using rule 13 (statement -> while .)
+    END             reduce using rule 13 (statement -> while .)
+    ELSE            reduce using rule 13 (statement -> while .)
+
+
+state 9
+
+    (14) statement -> expression .
+
+    TO              reduce using rule 14 (statement -> expression .)
+    ID              reduce using rule 14 (statement -> expression .)
+    IF              reduce using rule 14 (statement -> expression .)
+    WHILE           reduce using rule 14 (statement -> expression .)
+    PLUS            reduce using rule 14 (statement -> expression .)
+    MINUS           reduce using rule 14 (statement -> expression .)
+    LPAREN          reduce using rule 14 (statement -> expression .)
+    NUMBER          reduce using rule 14 (statement -> expression .)
+    $end            reduce using rule 14 (statement -> expression .)
+    END             reduce using rule 14 (statement -> expression .)
+    ELSE            reduce using rule 14 (statement -> expression .)
+
+
+state 10
+
+    (4) decl_fn -> TO . ID args_list statement_or_decl END
+
+    ID              shift and go to state 21
+
+
+state 11
+
+    (15) call_function -> ID . args_list
+    (5) args_list -> .
+    (6) args_list -> . args args_list
+    (7) args -> . COLON id
+    (8) args -> . number
+    (16) number -> . NUMBER
+
+  ! shift/reduce conflict for NUMBER resolved as shift
+    TO              reduce using rule 5 (args_list -> .)
+    ID              reduce using rule 5 (args_list -> .)
+    IF              reduce using rule 5 (args_list -> .)
+    WHILE           reduce using rule 5 (args_list -> .)
+    PLUS            reduce using rule 5 (args_list -> .)
+    MINUS           reduce using rule 5 (args_list -> .)
+    LPAREN          reduce using rule 5 (args_list -> .)
+    $end            reduce using rule 5 (args_list -> .)
+    END             reduce using rule 5 (args_list -> .)
+    ELSE            reduce using rule 5 (args_list -> .)
+    COLON           shift and go to state 24
+    NUMBER          shift and go to state 26
+
+  ! NUMBER          [ reduce using rule 5 (args_list -> .) ]
+
+    args_list                      shift and go to state 22
+    args                           shift and go to state 23
+    number                         shift and go to state 25
+
+state 12
+
+    (18) if -> IF . ID THEN statement_or_decl END
+    (19) if_else -> IF . ID THEN statement_or_decl ELSE statement_or_decl END
+
+    ID              shift and go to state 27
+
+
+state 13
+
+    (20) while -> WHILE . ID statement_or_decl END
+
+    ID              shift and go to state 28
+
+
+state 14
+
+    (24) expression -> term . PLUS term
+    (25) expression -> term . MINUS term
+    (26) expression -> term .
+
+  ! shift/reduce conflict for PLUS resolved as shift
+  ! shift/reduce conflict for MINUS resolved as shift
+    PLUS            shift and go to state 29
+    MINUS           shift and go to state 30
+    TO              reduce using rule 26 (expression -> term .)
+    ID              reduce using rule 26 (expression -> term .)
+    IF              reduce using rule 26 (expression -> term .)
+    WHILE           reduce using rule 26 (expression -> term .)
+    LPAREN          reduce using rule 26 (expression -> term .)
+    NUMBER          reduce using rule 26 (expression -> term .)
+    $end            reduce using rule 26 (expression -> term .)
+    END             reduce using rule 26 (expression -> term .)
+    ELSE            reduce using rule 26 (expression -> term .)
+    RPAREN          reduce using rule 26 (expression -> term .)
+
+  ! PLUS            [ reduce using rule 26 (expression -> term .) ]
+  ! MINUS           [ reduce using rule 26 (expression -> term .) ]
+
+
+state 15
+
+    (21) factor -> PLUS . factor
+    (21) factor -> . PLUS factor
+    (22) factor -> . MINUS factor
+    (23) factor -> . LPAREN expression RPAREN
+    (30) factor -> . NUMBER
+
+    PLUS            shift and go to state 15
+    MINUS           shift and go to state 16
+    LPAREN          shift and go to state 18
+    NUMBER          shift and go to state 19
+
+    factor                         shift and go to state 31
+
+state 16
+
+    (22) factor -> MINUS . factor
+    (21) factor -> . PLUS factor
+    (22) factor -> . MINUS factor
+    (23) factor -> . LPAREN expression RPAREN
+    (30) factor -> . NUMBER
+
+    PLUS            shift and go to state 15
+    MINUS           shift and go to state 16
+    LPAREN          shift and go to state 18
+    NUMBER          shift and go to state 19
+
+    factor                         shift and go to state 32
+
+state 17
+
+    (27) term -> factor . TIMES factor
+    (28) term -> factor . DIVIDE factor
+    (29) term -> factor .
+
+    TIMES           shift and go to state 33
+    DIVIDE          shift and go to state 34
+    PLUS            reduce using rule 29 (term -> factor .)
+    MINUS           reduce using rule 29 (term -> factor .)
+    TO              reduce using rule 29 (term -> factor .)
+    ID              reduce using rule 29 (term -> factor .)
+    IF              reduce using rule 29 (term -> factor .)
+    WHILE           reduce using rule 29 (term -> factor .)
+    LPAREN          reduce using rule 29 (term -> factor .)
+    NUMBER          reduce using rule 29 (term -> factor .)
+    $end            reduce using rule 29 (term -> factor .)
+    END             reduce using rule 29 (term -> factor .)
+    ELSE            reduce using rule 29 (term -> factor .)
+    RPAREN          reduce using rule 29 (term -> factor .)
+
+
+state 18
+
+    (23) factor -> LPAREN . expression RPAREN
+    (24) expression -> . term PLUS term
+    (25) expression -> . term MINUS term
+    (26) expression -> . term
+    (27) term -> . factor TIMES factor
+    (28) term -> . factor DIVIDE factor
+    (29) term -> . factor
+    (21) factor -> . PLUS factor
+    (22) factor -> . MINUS factor
+    (23) factor -> . LPAREN expression RPAREN
+    (30) factor -> . NUMBER
+
+    PLUS            shift and go to state 15
+    MINUS           shift and go to state 16
+    LPAREN          shift and go to state 18
+    NUMBER          shift and go to state 19
+
+    expression                     shift and go to state 35
+    term                           shift and go to state 14
+    factor                         shift and go to state 17
+
+state 19
+
+    (30) factor -> NUMBER .
+
+    TIMES           reduce using rule 30 (factor -> NUMBER .)
+    DIVIDE          reduce using rule 30 (factor -> NUMBER .)
+    PLUS            reduce using rule 30 (factor -> NUMBER .)
+    MINUS           reduce using rule 30 (factor -> NUMBER .)
+    TO              reduce using rule 30 (factor -> NUMBER .)
+    ID              reduce using rule 30 (factor -> NUMBER .)
+    IF              reduce using rule 30 (factor -> NUMBER .)
+    WHILE           reduce using rule 30 (factor -> NUMBER .)
+    LPAREN          reduce using rule 30 (factor -> NUMBER .)
+    NUMBER          reduce using rule 30 (factor -> NUMBER .)
+    $end            reduce using rule 30 (factor -> NUMBER .)
+    END             reduce using rule 30 (factor -> NUMBER .)
+    ELSE            reduce using rule 30 (factor -> NUMBER .)
+    RPAREN          reduce using rule 30 (factor -> NUMBER .)
+
+
+state 20
+
+    (2) statement_or_decl -> statement statement_or_decl .
+
+    $end            reduce using rule 2 (statement_or_decl -> statement statement_or_decl .)
+    END             reduce using rule 2 (statement_or_decl -> statement statement_or_decl .)
+    ELSE            reduce using rule 2 (statement_or_decl -> statement statement_or_decl .)
+
+
+state 21
+
+    (4) decl_fn -> TO ID . args_list statement_or_decl END
+    (5) args_list -> .
+    (6) args_list -> . args args_list
+    (7) args -> . COLON id
+    (8) args -> . number
+    (16) number -> . NUMBER
+
+  ! shift/reduce conflict for NUMBER resolved as shift
+    TO              reduce using rule 5 (args_list -> .)
+    ID              reduce using rule 5 (args_list -> .)
+    IF              reduce using rule 5 (args_list -> .)
+    WHILE           reduce using rule 5 (args_list -> .)
+    PLUS            reduce using rule 5 (args_list -> .)
+    MINUS           reduce using rule 5 (args_list -> .)
+    LPAREN          reduce using rule 5 (args_list -> .)
+    END             reduce using rule 5 (args_list -> .)
+    COLON           shift and go to state 24
+    NUMBER          shift and go to state 26
+
+  ! NUMBER          [ reduce using rule 5 (args_list -> .) ]
+
+    args_list                      shift and go to state 36
+    args                           shift and go to state 23
+    number                         shift and go to state 25
+
+state 22
+
+    (15) call_function -> ID args_list .
+
+    TO              reduce using rule 15 (call_function -> ID args_list .)
+    ID              reduce using rule 15 (call_function -> ID args_list .)
+    IF              reduce using rule 15 (call_function -> ID args_list .)
+    WHILE           reduce using rule 15 (call_function -> ID args_list .)
+    PLUS            reduce using rule 15 (call_function -> ID args_list .)
+    MINUS           reduce using rule 15 (call_function -> ID args_list .)
+    LPAREN          reduce using rule 15 (call_function -> ID args_list .)
+    NUMBER          reduce using rule 15 (call_function -> ID args_list .)
+    $end            reduce using rule 15 (call_function -> ID args_list .)
+    END             reduce using rule 15 (call_function -> ID args_list .)
+    ELSE            reduce using rule 15 (call_function -> ID args_list .)
+
+
+state 23
+
+    (6) args_list -> args . args_list
+    (5) args_list -> .
+    (6) args_list -> . args args_list
+    (7) args -> . COLON id
+    (8) args -> . number
+    (16) number -> . NUMBER
+
+  ! shift/reduce conflict for NUMBER resolved as shift
+    TO              reduce using rule 5 (args_list -> .)
+    ID              reduce using rule 5 (args_list -> .)
+    IF              reduce using rule 5 (args_list -> .)
+    WHILE           reduce using rule 5 (args_list -> .)
+    PLUS            reduce using rule 5 (args_list -> .)
+    MINUS           reduce using rule 5 (args_list -> .)
+    LPAREN          reduce using rule 5 (args_list -> .)
+    $end            reduce using rule 5 (args_list -> .)
+    END             reduce using rule 5 (args_list -> .)
+    ELSE            reduce using rule 5 (args_list -> .)
+    COLON           shift and go to state 24
+    NUMBER          shift and go to state 26
+
+  ! NUMBER          [ reduce using rule 5 (args_list -> .) ]
+
+    args                           shift and go to state 23
+    args_list                      shift and go to state 37
+    number                         shift and go to state 25
+
+state 24
+
+    (7) args -> COLON . id
+    (17) id -> . ID
+
+    ID              shift and go to state 39
+
+    id                             shift and go to state 38
+
+state 25
+
+    (8) args -> number .
+
+    COLON           reduce using rule 8 (args -> number .)
+    NUMBER          reduce using rule 8 (args -> number .)
+    TO              reduce using rule 8 (args -> number .)
+    ID              reduce using rule 8 (args -> number .)
+    IF              reduce using rule 8 (args -> number .)
+    WHILE           reduce using rule 8 (args -> number .)
+    PLUS            reduce using rule 8 (args -> number .)
+    MINUS           reduce using rule 8 (args -> number .)
+    LPAREN          reduce using rule 8 (args -> number .)
+    $end            reduce using rule 8 (args -> number .)
+    END             reduce using rule 8 (args -> number .)
+    ELSE            reduce using rule 8 (args -> number .)
+
+
+state 26
+
+    (16) number -> NUMBER .
+
+    COLON           reduce using rule 16 (number -> NUMBER .)
+    NUMBER          reduce using rule 16 (number -> NUMBER .)
+    TO              reduce using rule 16 (number -> NUMBER .)
+    ID              reduce using rule 16 (number -> NUMBER .)
+    IF              reduce using rule 16 (number -> NUMBER .)
+    WHILE           reduce using rule 16 (number -> NUMBER .)
+    PLUS            reduce using rule 16 (number -> NUMBER .)
+    MINUS           reduce using rule 16 (number -> NUMBER .)
+    LPAREN          reduce using rule 16 (number -> NUMBER .)
+    $end            reduce using rule 16 (number -> NUMBER .)
+    END             reduce using rule 16 (number -> NUMBER .)
+    ELSE            reduce using rule 16 (number -> NUMBER .)
+
+
+state 27
+
+    (18) if -> IF ID . THEN statement_or_decl END
+    (19) if_else -> IF ID . THEN statement_or_decl ELSE statement_or_decl END
+
+    THEN            shift and go to state 40
+
+
+state 28
+
+    (20) while -> WHILE ID . statement_or_decl END
+    (2) statement_or_decl -> . statement statement_or_decl
+    (3) statement_or_decl -> .
+    (9) statement -> . decl_fn
+    (10) statement -> . call_function
+    (11) statement -> . if
+    (12) statement -> . if_else
+    (13) statement -> . while
+    (14) statement -> . expression
+    (4) decl_fn -> . TO ID args_list statement_or_decl END
+    (15) call_function -> . ID args_list
+    (18) if -> . IF ID THEN statement_or_decl END
+    (19) if_else -> . IF ID THEN statement_or_decl ELSE statement_or_decl END
+    (20) while -> . WHILE ID statement_or_decl END
+    (24) expression -> . term PLUS term
+    (25) expression -> . term MINUS term
+    (26) expression -> . term
+    (27) term -> . factor TIMES factor
+    (28) term -> . factor DIVIDE factor
+    (29) term -> . factor
+    (21) factor -> . PLUS factor
+    (22) factor -> . MINUS factor
+    (23) factor -> . LPAREN expression RPAREN
+    (30) factor -> . NUMBER
+
+    END             reduce using rule 3 (statement_or_decl -> .)
+    TO              shift and go to state 10
+    ID              shift and go to state 11
+    IF              shift and go to state 12
+    WHILE           shift and go to state 13
+    PLUS            shift and go to state 15
+    MINUS           shift and go to state 16
+    LPAREN          shift and go to state 18
+    NUMBER          shift and go to state 19
+
+    statement_or_decl              shift and go to state 41
+    statement                      shift and go to state 3
+    decl_fn                        shift and go to state 4
+    call_function                  shift and go to state 5
+    if                             shift and go to state 6
+    if_else                        shift and go to state 7
+    while                          shift and go to state 8
+    expression                     shift and go to state 9
+    term                           shift and go to state 14
+    factor                         shift and go to state 17
+
+state 29
+
+    (24) expression -> term PLUS . term
+    (27) term -> . factor TIMES factor
+    (28) term -> . factor DIVIDE factor
+    (29) term -> . factor
+    (21) factor -> . PLUS factor
+    (22) factor -> . MINUS factor
+    (23) factor -> . LPAREN expression RPAREN
+    (30) factor -> . NUMBER
+
+    PLUS            shift and go to state 15
+    MINUS           shift and go to state 16
+    LPAREN          shift and go to state 18
+    NUMBER          shift and go to state 19
+
+    term                           shift and go to state 42
+    factor                         shift and go to state 17
+
+state 30
+
+    (25) expression -> term MINUS . term
+    (27) term -> . factor TIMES factor
+    (28) term -> . factor DIVIDE factor
+    (29) term -> . factor
+    (21) factor -> . PLUS factor
+    (22) factor -> . MINUS factor
+    (23) factor -> . LPAREN expression RPAREN
+    (30) factor -> . NUMBER
+
+    PLUS            shift and go to state 15
+    MINUS           shift and go to state 16
+    LPAREN          shift and go to state 18
+    NUMBER          shift and go to state 19
+
+    term                           shift and go to state 43
+    factor                         shift and go to state 17
+
+state 31
+
+    (21) factor -> PLUS factor .
+
+    TIMES           reduce using rule 21 (factor -> PLUS factor .)
+    DIVIDE          reduce using rule 21 (factor -> PLUS factor .)
+    PLUS            reduce using rule 21 (factor -> PLUS factor .)
+    MINUS           reduce using rule 21 (factor -> PLUS factor .)
+    TO              reduce using rule 21 (factor -> PLUS factor .)
+    ID              reduce using rule 21 (factor -> PLUS factor .)
+    IF              reduce using rule 21 (factor -> PLUS factor .)
+    WHILE           reduce using rule 21 (factor -> PLUS factor .)
+    LPAREN          reduce using rule 21 (factor -> PLUS factor .)
+    NUMBER          reduce using rule 21 (factor -> PLUS factor .)
+    $end            reduce using rule 21 (factor -> PLUS factor .)
+    END             reduce using rule 21 (factor -> PLUS factor .)
+    ELSE            reduce using rule 21 (factor -> PLUS factor .)
+    RPAREN          reduce using rule 21 (factor -> PLUS factor .)
+
+
+state 32
+
+    (22) factor -> MINUS factor .
+
+    TIMES           reduce using rule 22 (factor -> MINUS factor .)
+    DIVIDE          reduce using rule 22 (factor -> MINUS factor .)
+    PLUS            reduce using rule 22 (factor -> MINUS factor .)
+    MINUS           reduce using rule 22 (factor -> MINUS factor .)
+    TO              reduce using rule 22 (factor -> MINUS factor .)
+    ID              reduce using rule 22 (factor -> MINUS factor .)
+    IF              reduce using rule 22 (factor -> MINUS factor .)
+    WHILE           reduce using rule 22 (factor -> MINUS factor .)
+    LPAREN          reduce using rule 22 (factor -> MINUS factor .)
+    NUMBER          reduce using rule 22 (factor -> MINUS factor .)
+    $end            reduce using rule 22 (factor -> MINUS factor .)
+    END             reduce using rule 22 (factor -> MINUS factor .)
+    ELSE            reduce using rule 22 (factor -> MINUS factor .)
+    RPAREN          reduce using rule 22 (factor -> MINUS factor .)
+
+
+state 33
+
+    (27) term -> factor TIMES . factor
+    (21) factor -> . PLUS factor
+    (22) factor -> . MINUS factor
+    (23) factor -> . LPAREN expression RPAREN
+    (30) factor -> . NUMBER
+
+    PLUS            shift and go to state 15
+    MINUS           shift and go to state 16
+    LPAREN          shift and go to state 18
+    NUMBER          shift and go to state 19
+
+    factor                         shift and go to state 44
+
+state 34
+
+    (28) term -> factor DIVIDE . factor
+    (21) factor -> . PLUS factor
+    (22) factor -> . MINUS factor
+    (23) factor -> . LPAREN expression RPAREN
+    (30) factor -> . NUMBER
+
+    PLUS            shift and go to state 15
+    MINUS           shift and go to state 16
+    LPAREN          shift and go to state 18
+    NUMBER          shift and go to state 19
+
+    factor                         shift and go to state 45
+
+state 35
+
+    (23) factor -> LPAREN expression . RPAREN
+
+    RPAREN          shift and go to state 46
+
+
+state 36
+
+    (4) decl_fn -> TO ID args_list . statement_or_decl END
+    (2) statement_or_decl -> . statement statement_or_decl
+    (3) statement_or_decl -> .
+    (9) statement -> . decl_fn
+    (10) statement -> . call_function
+    (11) statement -> . if
+    (12) statement -> . if_else
+    (13) statement -> . while
+    (14) statement -> . expression
+    (4) decl_fn -> . TO ID args_list statement_or_decl END
+    (15) call_function -> . ID args_list
+    (18) if -> . IF ID THEN statement_or_decl END
+    (19) if_else -> . IF ID THEN statement_or_decl ELSE statement_or_decl END
+    (20) while -> . WHILE ID statement_or_decl END
+    (24) expression -> . term PLUS term
+    (25) expression -> . term MINUS term
+    (26) expression -> . term
+    (27) term -> . factor TIMES factor
+    (28) term -> . factor DIVIDE factor
+    (29) term -> . factor
+    (21) factor -> . PLUS factor
+    (22) factor -> . MINUS factor
+    (23) factor -> . LPAREN expression RPAREN
+    (30) factor -> . NUMBER
+
+    END             reduce using rule 3 (statement_or_decl -> .)
+    TO              shift and go to state 10
+    ID              shift and go to state 11
+    IF              shift and go to state 12
+    WHILE           shift and go to state 13
+    PLUS            shift and go to state 15
+    MINUS           shift and go to state 16
+    LPAREN          shift and go to state 18
+    NUMBER          shift and go to state 19
+
+    statement_or_decl              shift and go to state 47
+    statement                      shift and go to state 3
+    decl_fn                        shift and go to state 4
+    call_function                  shift and go to state 5
+    if                             shift and go to state 6
+    if_else                        shift and go to state 7
+    while                          shift and go to state 8
+    expression                     shift and go to state 9
+    term                           shift and go to state 14
+    factor                         shift and go to state 17
+
+state 37
+
+    (6) args_list -> args args_list .
+
+    TO              reduce using rule 6 (args_list -> args args_list .)
+    ID              reduce using rule 6 (args_list -> args args_list .)
+    IF              reduce using rule 6 (args_list -> args args_list .)
+    WHILE           reduce using rule 6 (args_list -> args args_list .)
+    PLUS            reduce using rule 6 (args_list -> args args_list .)
+    MINUS           reduce using rule 6 (args_list -> args args_list .)
+    LPAREN          reduce using rule 6 (args_list -> args args_list .)
+    NUMBER          reduce using rule 6 (args_list -> args args_list .)
+    $end            reduce using rule 6 (args_list -> args args_list .)
+    END             reduce using rule 6 (args_list -> args args_list .)
+    ELSE            reduce using rule 6 (args_list -> args args_list .)
+
+
+state 38
+
+    (7) args -> COLON id .
+
+    COLON           reduce using rule 7 (args -> COLON id .)
+    NUMBER          reduce using rule 7 (args -> COLON id .)
+    TO              reduce using rule 7 (args -> COLON id .)
+    ID              reduce using rule 7 (args -> COLON id .)
+    IF              reduce using rule 7 (args -> COLON id .)
+    WHILE           reduce using rule 7 (args -> COLON id .)
+    PLUS            reduce using rule 7 (args -> COLON id .)
+    MINUS           reduce using rule 7 (args -> COLON id .)
+    LPAREN          reduce using rule 7 (args -> COLON id .)
+    $end            reduce using rule 7 (args -> COLON id .)
+    END             reduce using rule 7 (args -> COLON id .)
+    ELSE            reduce using rule 7 (args -> COLON id .)
+
+
+state 39
+
+    (17) id -> ID .
+
+    COLON           reduce using rule 17 (id -> ID .)
+    NUMBER          reduce using rule 17 (id -> ID .)
+    TO              reduce using rule 17 (id -> ID .)
+    ID              reduce using rule 17 (id -> ID .)
+    IF              reduce using rule 17 (id -> ID .)
+    WHILE           reduce using rule 17 (id -> ID .)
+    PLUS            reduce using rule 17 (id -> ID .)
+    MINUS           reduce using rule 17 (id -> ID .)
+    LPAREN          reduce using rule 17 (id -> ID .)
+    $end            reduce using rule 17 (id -> ID .)
+    END             reduce using rule 17 (id -> ID .)
+    ELSE            reduce using rule 17 (id -> ID .)
+
+
+state 40
+
+    (18) if -> IF ID THEN . statement_or_decl END
+    (19) if_else -> IF ID THEN . statement_or_decl ELSE statement_or_decl END
+    (2) statement_or_decl -> . statement statement_or_decl
+    (3) statement_or_decl -> .
+    (9) statement -> . decl_fn
+    (10) statement -> . call_function
+    (11) statement -> . if
+    (12) statement -> . if_else
+    (13) statement -> . while
+    (14) statement -> . expression
+    (4) decl_fn -> . TO ID args_list statement_or_decl END
+    (15) call_function -> . ID args_list
+    (18) if -> . IF ID THEN statement_or_decl END
+    (19) if_else -> . IF ID THEN statement_or_decl ELSE statement_or_decl END
+    (20) while -> . WHILE ID statement_or_decl END
+    (24) expression -> . term PLUS term
+    (25) expression -> . term MINUS term
+    (26) expression -> . term
+    (27) term -> . factor TIMES factor
+    (28) term -> . factor DIVIDE factor
+    (29) term -> . factor
+    (21) factor -> . PLUS factor
+    (22) factor -> . MINUS factor
+    (23) factor -> . LPAREN expression RPAREN
+    (30) factor -> . NUMBER
+
+    END             reduce using rule 3 (statement_or_decl -> .)
+    ELSE            reduce using rule 3 (statement_or_decl -> .)
+    TO              shift and go to state 10
+    ID              shift and go to state 11
+    IF              shift and go to state 12
+    WHILE           shift and go to state 13
+    PLUS            shift and go to state 15
+    MINUS           shift and go to state 16
+    LPAREN          shift and go to state 18
+    NUMBER          shift and go to state 19
+
+    statement_or_decl              shift and go to state 48
+    statement                      shift and go to state 3
+    decl_fn                        shift and go to state 4
+    call_function                  shift and go to state 5
+    if                             shift and go to state 6
+    if_else                        shift and go to state 7
+    while                          shift and go to state 8
+    expression                     shift and go to state 9
+    term                           shift and go to state 14
+    factor                         shift and go to state 17
+
+state 41
+
+    (20) while -> WHILE ID statement_or_decl . END
+
+    END             shift and go to state 49
+
+
+state 42
+
+    (24) expression -> term PLUS term .
+
+    TO              reduce using rule 24 (expression -> term PLUS term .)
+    ID              reduce using rule 24 (expression -> term PLUS term .)
+    IF              reduce using rule 24 (expression -> term PLUS term .)
+    WHILE           reduce using rule 24 (expression -> term PLUS term .)
+    PLUS            reduce using rule 24 (expression -> term PLUS term .)
+    MINUS           reduce using rule 24 (expression -> term PLUS term .)
+    LPAREN          reduce using rule 24 (expression -> term PLUS term .)
+    NUMBER          reduce using rule 24 (expression -> term PLUS term .)
+    $end            reduce using rule 24 (expression -> term PLUS term .)
+    END             reduce using rule 24 (expression -> term PLUS term .)
+    ELSE            reduce using rule 24 (expression -> term PLUS term .)
+    RPAREN          reduce using rule 24 (expression -> term PLUS term .)
+
+
+state 43
+
+    (25) expression -> term MINUS term .
+
+    TO              reduce using rule 25 (expression -> term MINUS term .)
+    ID              reduce using rule 25 (expression -> term MINUS term .)
+    IF              reduce using rule 25 (expression -> term MINUS term .)
+    WHILE           reduce using rule 25 (expression -> term MINUS term .)
+    PLUS            reduce using rule 25 (expression -> term MINUS term .)
+    MINUS           reduce using rule 25 (expression -> term MINUS term .)
+    LPAREN          reduce using rule 25 (expression -> term MINUS term .)
+    NUMBER          reduce using rule 25 (expression -> term MINUS term .)
+    $end            reduce using rule 25 (expression -> term MINUS term .)
+    END             reduce using rule 25 (expression -> term MINUS term .)
+    ELSE            reduce using rule 25 (expression -> term MINUS term .)
+    RPAREN          reduce using rule 25 (expression -> term MINUS term .)
+
+
+state 44
+
+    (27) term -> factor TIMES factor .
+
+    PLUS            reduce using rule 27 (term -> factor TIMES factor .)
+    MINUS           reduce using rule 27 (term -> factor TIMES factor .)
+    TO              reduce using rule 27 (term -> factor TIMES factor .)
+    ID              reduce using rule 27 (term -> factor TIMES factor .)
+    IF              reduce using rule 27 (term -> factor TIMES factor .)
+    WHILE           reduce using rule 27 (term -> factor TIMES factor .)
+    LPAREN          reduce using rule 27 (term -> factor TIMES factor .)
+    NUMBER          reduce using rule 27 (term -> factor TIMES factor .)
+    $end            reduce using rule 27 (term -> factor TIMES factor .)
+    END             reduce using rule 27 (term -> factor TIMES factor .)
+    ELSE            reduce using rule 27 (term -> factor TIMES factor .)
+    RPAREN          reduce using rule 27 (term -> factor TIMES factor .)
+
+
+state 45
+
+    (28) term -> factor DIVIDE factor .
+
+    PLUS            reduce using rule 28 (term -> factor DIVIDE factor .)
+    MINUS           reduce using rule 28 (term -> factor DIVIDE factor .)
+    TO              reduce using rule 28 (term -> factor DIVIDE factor .)
+    ID              reduce using rule 28 (term -> factor DIVIDE factor .)
+    IF              reduce using rule 28 (term -> factor DIVIDE factor .)
+    WHILE           reduce using rule 28 (term -> factor DIVIDE factor .)
+    LPAREN          reduce using rule 28 (term -> factor DIVIDE factor .)
+    NUMBER          reduce using rule 28 (term -> factor DIVIDE factor .)
+    $end            reduce using rule 28 (term -> factor DIVIDE factor .)
+    END             reduce using rule 28 (term -> factor DIVIDE factor .)
+    ELSE            reduce using rule 28 (term -> factor DIVIDE factor .)
+    RPAREN          reduce using rule 28 (term -> factor DIVIDE factor .)
+
+
+state 46
+
+    (23) factor -> LPAREN expression RPAREN .
+
+    TIMES           reduce using rule 23 (factor -> LPAREN expression RPAREN .)
+    DIVIDE          reduce using rule 23 (factor -> LPAREN expression RPAREN .)
+    PLUS            reduce using rule 23 (factor -> LPAREN expression RPAREN .)
+    MINUS           reduce using rule 23 (factor -> LPAREN expression RPAREN .)
+    TO              reduce using rule 23 (factor -> LPAREN expression RPAREN .)
+    ID              reduce using rule 23 (factor -> LPAREN expression RPAREN .)
+    IF              reduce using rule 23 (factor -> LPAREN expression RPAREN .)
+    WHILE           reduce using rule 23 (factor -> LPAREN expression RPAREN .)
+    LPAREN          reduce using rule 23 (factor -> LPAREN expression RPAREN .)
+    NUMBER          reduce using rule 23 (factor -> LPAREN expression RPAREN .)
+    $end            reduce using rule 23 (factor -> LPAREN expression RPAREN .)
+    END             reduce using rule 23 (factor -> LPAREN expression RPAREN .)
+    ELSE            reduce using rule 23 (factor -> LPAREN expression RPAREN .)
+    RPAREN          reduce using rule 23 (factor -> LPAREN expression RPAREN .)
+
+
+state 47
+
+    (4) decl_fn -> TO ID args_list statement_or_decl . END
+
+    END             shift and go to state 50
+
+
+state 48
+
+    (18) if -> IF ID THEN statement_or_decl . END
+    (19) if_else -> IF ID THEN statement_or_decl . ELSE statement_or_decl END
+
+    END             shift and go to state 51
+    ELSE            shift and go to state 52
+
+
+state 49
+
+    (20) while -> WHILE ID statement_or_decl END .
+
+    TO              reduce using rule 20 (while -> WHILE ID statement_or_decl END .)
+    ID              reduce using rule 20 (while -> WHILE ID statement_or_decl END .)
+    IF              reduce using rule 20 (while -> WHILE ID statement_or_decl END .)
+    WHILE           reduce using rule 20 (while -> WHILE ID statement_or_decl END .)
+    PLUS            reduce using rule 20 (while -> WHILE ID statement_or_decl END .)
+    MINUS           reduce using rule 20 (while -> WHILE ID statement_or_decl END .)
+    LPAREN          reduce using rule 20 (while -> WHILE ID statement_or_decl END .)
+    NUMBER          reduce using rule 20 (while -> WHILE ID statement_or_decl END .)
+    $end            reduce using rule 20 (while -> WHILE ID statement_or_decl END .)
+    END             reduce using rule 20 (while -> WHILE ID statement_or_decl END .)
+    ELSE            reduce using rule 20 (while -> WHILE ID statement_or_decl END .)
+
+
+state 50
+
+    (4) decl_fn -> TO ID args_list statement_or_decl END .
+
+    TO              reduce using rule 4 (decl_fn -> TO ID args_list statement_or_decl END .)
+    ID              reduce using rule 4 (decl_fn -> TO ID args_list statement_or_decl END .)
+    IF              reduce using rule 4 (decl_fn -> TO ID args_list statement_or_decl END .)
+    WHILE           reduce using rule 4 (decl_fn -> TO ID args_list statement_or_decl END .)
+    PLUS            reduce using rule 4 (decl_fn -> TO ID args_list statement_or_decl END .)
+    MINUS           reduce using rule 4 (decl_fn -> TO ID args_list statement_or_decl END .)
+    LPAREN          reduce using rule 4 (decl_fn -> TO ID args_list statement_or_decl END .)
+    NUMBER          reduce using rule 4 (decl_fn -> TO ID args_list statement_or_decl END .)
+    $end            reduce using rule 4 (decl_fn -> TO ID args_list statement_or_decl END .)
+    END             reduce using rule 4 (decl_fn -> TO ID args_list statement_or_decl END .)
+    ELSE            reduce using rule 4 (decl_fn -> TO ID args_list statement_or_decl END .)
+
+
+state 51
+
+    (18) if -> IF ID THEN statement_or_decl END .
+
+    TO              reduce using rule 18 (if -> IF ID THEN statement_or_decl END .)
+    ID              reduce using rule 18 (if -> IF ID THEN statement_or_decl END .)
+    IF              reduce using rule 18 (if -> IF ID THEN statement_or_decl END .)
+    WHILE           reduce using rule 18 (if -> IF ID THEN statement_or_decl END .)
+    PLUS            reduce using rule 18 (if -> IF ID THEN statement_or_decl END .)
+    MINUS           reduce using rule 18 (if -> IF ID THEN statement_or_decl END .)
+    LPAREN          reduce using rule 18 (if -> IF ID THEN statement_or_decl END .)
+    NUMBER          reduce using rule 18 (if -> IF ID THEN statement_or_decl END .)
+    $end            reduce using rule 18 (if -> IF ID THEN statement_or_decl END .)
+    END             reduce using rule 18 (if -> IF ID THEN statement_or_decl END .)
+    ELSE            reduce using rule 18 (if -> IF ID THEN statement_or_decl END .)
+
+
+state 52
+
+    (19) if_else -> IF ID THEN statement_or_decl ELSE . statement_or_decl END
+    (2) statement_or_decl -> . statement statement_or_decl
+    (3) statement_or_decl -> .
+    (9) statement -> . decl_fn
+    (10) statement -> . call_function
+    (11) statement -> . if
+    (12) statement -> . if_else
+    (13) statement -> . while
+    (14) statement -> . expression
+    (4) decl_fn -> . TO ID args_list statement_or_decl END
+    (15) call_function -> . ID args_list
+    (18) if -> . IF ID THEN statement_or_decl END
+    (19) if_else -> . IF ID THEN statement_or_decl ELSE statement_or_decl END
+    (20) while -> . WHILE ID statement_or_decl END
+    (24) expression -> . term PLUS term
+    (25) expression -> . term MINUS term
+    (26) expression -> . term
+    (27) term -> . factor TIMES factor
+    (28) term -> . factor DIVIDE factor
+    (29) term -> . factor
+    (21) factor -> . PLUS factor
+    (22) factor -> . MINUS factor
+    (23) factor -> . LPAREN expression RPAREN
+    (30) factor -> . NUMBER
+
+    END             reduce using rule 3 (statement_or_decl -> .)
+    TO              shift and go to state 10
+    ID              shift and go to state 11
+    IF              shift and go to state 12
+    WHILE           shift and go to state 13
+    PLUS            shift and go to state 15
+    MINUS           shift and go to state 16
+    LPAREN          shift and go to state 18
+    NUMBER          shift and go to state 19
+
+    statement_or_decl              shift and go to state 53
+    statement                      shift and go to state 3
+    decl_fn                        shift and go to state 4
+    call_function                  shift and go to state 5
+    if                             shift and go to state 6
+    if_else                        shift and go to state 7
+    while                          shift and go to state 8
+    expression                     shift and go to state 9
+    term                           shift and go to state 14
+    factor                         shift and go to state 17
+
+state 53
+
+    (19) if_else -> IF ID THEN statement_or_decl ELSE statement_or_decl . END
+
+    END             shift and go to state 54
+
+
+state 54
+
+    (19) if_else -> IF ID THEN statement_or_decl ELSE statement_or_decl END .
+
+    TO              reduce using rule 19 (if_else -> IF ID THEN statement_or_decl ELSE statement_or_decl END .)
+    ID              reduce using rule 19 (if_else -> IF ID THEN statement_or_decl ELSE statement_or_decl END .)
+    IF              reduce using rule 19 (if_else -> IF ID THEN statement_or_decl ELSE statement_or_decl END .)
+    WHILE           reduce using rule 19 (if_else -> IF ID THEN statement_or_decl ELSE statement_or_decl END .)
+    PLUS            reduce using rule 19 (if_else -> IF ID THEN statement_or_decl ELSE statement_or_decl END .)
+    MINUS           reduce using rule 19 (if_else -> IF ID THEN statement_or_decl ELSE statement_or_decl END .)
+    LPAREN          reduce using rule 19 (if_else -> IF ID THEN statement_or_decl ELSE statement_or_decl END .)
+    NUMBER          reduce using rule 19 (if_else -> IF ID THEN statement_or_decl ELSE statement_or_decl END .)
+    $end            reduce using rule 19 (if_else -> IF ID THEN statement_or_decl ELSE statement_or_decl END .)
+    END             reduce using rule 19 (if_else -> IF ID THEN statement_or_decl ELSE statement_or_decl END .)
+    ELSE            reduce using rule 19 (if_else -> IF ID THEN statement_or_decl ELSE statement_or_decl END .)
+
+WARNING: 
+WARNING: Conflicts:
+WARNING: 
+WARNING: shift/reduce conflict for NUMBER in state 11 resolved as shift
+WARNING: shift/reduce conflict for PLUS in state 14 resolved as shift
+WARNING: shift/reduce conflict for MINUS in state 14 resolved as shift
+WARNING: shift/reduce conflict for NUMBER in state 21 resolved as shift
+WARNING: shift/reduce conflict for NUMBER in state 23 resolved as shift

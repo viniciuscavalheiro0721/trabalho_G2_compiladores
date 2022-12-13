@@ -1,0 +1,139 @@
+name: Program
+children:
+- - name: statement
+    children:
+    - name: Declare function
+      children:
+      - name: TO
+        value: {}
+      - name: ID
+        value:
+          value: SQUARE
+      - - !!python/tuple
+          - args
+          - !!python/tuple
+            - Identifier
+            - length
+      - - name: statement
+          children:
+          - name: Call function
+            children:
+            - name: ID
+              value:
+                value: FORWARD
+            - - !!python/tuple
+                - args
+                - !!python/tuple
+                  - Identifier
+                  - length
+        - name: statement
+          children:
+          - name: Call function
+            children:
+            - name: ID
+              value:
+                value: RIGHT
+            - - !!python/tuple
+                - args
+                - !!python/tuple
+                  - number
+                  - 10
+        - name: statement
+          children:
+          - name: Call function
+            children:
+            - name: ID
+              value:
+                value: FORWARD
+            - - !!python/tuple
+                - args
+                - !!python/tuple
+                  - Identifier
+                  - length
+        - name: statement
+          children:
+          - name: Call function
+            children:
+            - name: ID
+              value:
+                value: RIGHT
+            - - !!python/tuple
+                - args
+                - !!python/tuple
+                  - number
+                  - 20
+        - name: statement
+          children:
+          - name: Call function
+            children:
+            - name: ID
+              value:
+                value: FORWARD
+            - - !!python/tuple
+                - args
+                - !!python/tuple
+                  - Identifier
+                  - length
+        - name: statement
+          children:
+          - name: Call function
+            children:
+            - name: ID
+              value:
+                value: RIGHT
+            - - !!python/tuple
+                - args
+                - !!python/tuple
+                  - number
+                  - 30
+        - name: statement
+          children:
+          - name: Call function
+            children:
+            - name: ID
+              value:
+                value: FORWARD
+            - - !!python/tuple
+                - args
+                - !!python/tuple
+                  - Identifier
+                  - length
+        - name: statement
+          children:
+          - name: Call function
+            children:
+            - name: ID
+              value:
+                value: RIGHT
+            - - !!python/tuple
+                - args
+                - !!python/tuple
+                  - number
+                  - 40
+      - name: statement_or_decl
+        value:
+          value: END
+  - name: statement
+    children:
+    - name: Call function
+      children:
+      - name: ID
+        value:
+          value: SETXY
+      - - !!python/tuple
+          - args
+          - !!python/tuple
+            - number
+            - 50
+  - name: statement
+    children:
+    - name: Call function
+      children:
+      - name: ID
+        value:
+          value: SQUARE
+      - - !!python/tuple
+          - args
+          - !!python/tuple
+            - number
+            - 60
