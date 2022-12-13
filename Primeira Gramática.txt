@@ -1,0 +1,29 @@
+program: statement_or_decl other_statement
+statement_or_decl: statement | decl_fn
+decl_fn: TO id : args_list statment_or_decl END other_statement
+args_list: args other_args | &
+args: num | ID | &
+other_args: args_list other_args | &
+body: other_statement
+other_statement: statement_or_decl other_statement | &
+statement:
+	id : value_expression
+	id args_list |
+	IF boolean_expression THEN other-statement END |
+	IF boolean_expression THEN other-statement ELSE other-statement END |
+	WHILE boolean_expression other_statement END
+value_expression: num_expression | string
+boolean-expression: relational_expression | boolean_expression OR boolean_expression | boolean_expression AND boolean_expression | id | boolean | (boolean_expression) | NOT boolean_expression
+relational_expression: num_expression > num_expression | num_expression < num_expression | num_expression <= num_expression | num_expression >= num_expression | num_expression == num_expression | num_expression <> num_expression
+num_expression: SP’
+P’: SP’ | &
+S : id : E | E
+E : TE’
+E’: +TE’ | -TE’ | &
+T : FT’
+T’: *FT’ | /FT’ | &
+F : GF’
+F’: ^GF’ | **GF’ | &
+G : ( E ) | num | X
+X : id A
+A : ( E )  | &
